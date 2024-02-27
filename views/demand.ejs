@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+	<nav>
+		<img src="/images/camera.svg">
+		<a href="demand">ALL Products</a>
+		<% if (user) { %>
+		  <a href="/performers/new"	>
+			  ADD PERFORMER</a>
+		  <a href="/movies/new" >ADD MOVIE</a>
+		  <a href="/logout">LOG OUT</a>
+		<% } else { %>
+		  <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+		<% } %>
+	  </nav>
+	<main>
+	<table id="list">
+		<thead>
+		  <tr>
+			<th>Title</th>
+			<th>Release<br>Year</th>
+			<th></th>
+		  </tr>
+		</thead>
+
+		
+		</table>
+		
+	</main>
+</body>
+
+</html>

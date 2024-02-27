@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema;
 
-const demandSchema= new Schema({
+const productsSchema= new Schema({
     title: String
 }
 
@@ -15,4 +15,4 @@ const demandSchema= new Schema({
 
 
 
-module.exports = mongoose.model('demand', demandSchema);
+module.exports = mongoose.model('products', productsSchema);

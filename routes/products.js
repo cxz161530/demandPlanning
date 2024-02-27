@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const demandCtrl = require('../controllers/demand')
+const productsCtrl = require('../controllers/products')
 
 
 
 // GET request to /demand
-router.get('/', demandCtrl.index)
+router.get('/', productsCtrl.index)
 
 
 

@@ -24,17 +24,15 @@
 		<% } %>
 	  </nav>
 	<main>
-	<table id="list">
-		<thead>
-		  <tr>
-			<th>Title</th>
-			<th>Release<br>Year</th>
-			<th></th>
-		  </tr>
-		</thead>
+	<h1>Welcome to  Hutchins Planning</h1>
+	<% if(user){%>
+		<h2> What you looking for?</h2>
+		<a href="/products"	>
+			  View All Products</a>
+		  <a href="/customers" >
+			  View All Customers</a>
 
-		
-		</table>
+			  <%}  %>
 		
 	</main>
 </body>

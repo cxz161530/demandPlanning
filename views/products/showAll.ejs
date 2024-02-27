@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+	<nav>
+		<img src="/images/camera.svg">
+	    <a href="/products"	>
+			  View All Products</a>
+		<a href="/customers" >
+			  View All Customers</a>
+		  <a href="/logout">LOG OUT</a>
+	</nav>
+	<main>
+		<section id="show-page">
+			<div>Product ID: </div>
+			<div>
+				<%= products.Product_ID %>
+			</div>
+			<div>Category: </div>
+			<div>
+				<%= products.Category %>
+			</div>
+			<div>Product Name: </div>
+			<div>
+				<%= products.Product_Name %>
+			</div>
+			<div>Product Status: </div>
+			<div>
+				<%= products.Product_Status%>
+			</div>
+			
+
+		</section>

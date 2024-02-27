@@ -9,36 +9,28 @@
 </head>
 
 <body>
-	<nav>
-		<img src="/images/camera.svg">
-	    <a href="/products"	>
-			  View All Products</a>
-		<a href="/customers" >
-			  View All Customers</a>
-		  <a href="/logout">LOG OUT</a>
-	</nav>
-	<main>
+    <nav>
+        <img src="/images/camera.svg">
+        <a href="/products">View All Products</a>
+        <a href="/customers">View All Customers</a>
+        <a href="/logout">LOG OUT</a>
+    </nav>
+    <main>
         <section id="show-page">
-        <%= productsDocs.forEach(p=>{
-            <div>Product ID: </div>
-			<div>
-				<%= p.Product_ID %>
-			</div>
-			<div>Category: </div>
-			<div>
-				<%= p.Category %>
-			</div>
-			<div>Product Name: </div>
-			<div>
-				<%= p.Product_Name %>
-			</div>
-			<div>Product Status: </div>
-			<div>
-				<%= p.Product_Status%>
-			</div>
-
-        }) %>
-
-
-
-		</section>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Product Name</th>
+                    <th>Status</th>
+                </tr>
+                <% productsDocs.forEach(function(p){ %>
+                <tr>
+                    <td><%= p.Category %></td>
+                    <td><%= p.Product_Name %></td>
+                    <td><%= p.Product_Status %></td>
+                </tr>
+                <% }); %>
+            </table>
+        </section>
+    </main>
+</body>

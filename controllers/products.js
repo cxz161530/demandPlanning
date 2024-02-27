@@ -20,11 +20,13 @@ async function index(req,res){
 	try{
 		const productsInfoFromDB = await ProductModel.find({})
 		console.log(productsInfoFromDB)
-		res.render('/products/showAll',{productsDocs: productsInfoFromDB})
+	
+		res.render('products/showAll', { productsDocs: productsInfoFromDB });
+		
+
 	}catch(err){
 		console.log(err)
-		res.redirect('/')
-
+		
 	}
 	
 }
@@ -36,7 +38,7 @@ function newProduct(req, res){
 async function create(req, res){
 	try{
 		const products = await ProductModel.create(req.body);
-		res.redirect('/products/new')
+		res.redirect('/products/showAll')
 	
 	} catch(err){
 		console.log(err)

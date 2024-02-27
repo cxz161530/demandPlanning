@@ -1,10 +1,12 @@
-const productsModel = require('../models/products')
+const ProductModel = require('../models/products')
 
 
 module.exports = {
 
 	userShow,
 	index,
+	newProduct,
+	create
 
 
 }
@@ -16,7 +18,7 @@ function userShow(req, res){
 
 async function index(req,res){
 	try{
-		const productsInfoFromDB = await productsModel.find({})
+		const productsInfoFromDB = await ProductModel.find({})
 		console.log(productsInfoFromDB)
 		res.render('/products/showAll',{productsDocs: productsInfoFromDB})
 	}catch(err){
@@ -25,7 +27,23 @@ async function index(req,res){
 
 	}
 	
+}
+
+function newProduct(req, res){
+	res.render('products/new')
+}
+
+async function create(req, res){
+	try{
+		const products = await ProductModel.create(req.body);
+		res.redirect('/products/new')
 	
+	} catch(err){
+		console.log(err)
+		res.send(err.message)
+	}
 	
+
+
 
 }

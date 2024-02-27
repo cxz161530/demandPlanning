@@ -12,7 +12,7 @@
 	<nav>
 		<img src="/images/camera.svg">
 		<% if (user) { %>
-		  <a href="/products"	>
+		  <a href="/products/showAll"	>
 			  View All Products</a>
 		  <a href="/customers" >
 			  View All Customers</a>
@@ -27,10 +27,15 @@
 	<h1>Welcome to  Hutchins Planning</h1>
 	<% if(user){%>
 		<h2> What you looking for?</h2>
-		<a href="/products"	>
+		<a href="/products/showAll"	>
 			  View All Products</a>
-		  <a href="/customers" >
+		<a href="/customers" >
 			  View All Customers</a>
+		<a href="/products/new" >
+				Add Products</a>
+		<a href="/customers/new" >
+				add Customers</a>	  
+
 
 			  <%}  %>
 		

@@ -18,23 +18,27 @@
 		  <a href="/logout">LOG OUT</a>
 	</nav>
 	<main>
-		<section id="show-page">
-			<div>Product ID: </div>
+        <section id="show-page">
+        <%= productsDocs.forEach(p=>{
+            <div>Product ID: </div>
 			<div>
-				<%= products.Product_ID %>
+				<%= p.Product_ID %>
 			</div>
 			<div>Category: </div>
 			<div>
-				<%= products.Category %>
+				<%= p.Category %>
 			</div>
 			<div>Product Name: </div>
 			<div>
-				<%= products.Product_Name %>
+				<%= p.Product_Name %>
 			</div>
 			<div>Product Status: </div>
 			<div>
-				<%= products.Product_Status%>
+				<%= p.Product_Status%>
 			</div>
-			
+
+        }) %>
+
+
 
 		</section>

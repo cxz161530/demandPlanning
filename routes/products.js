@@ -4,9 +4,10 @@ const productsCtrl = require('../controllers/products')
 
 
 
-// GET request to /demand
-router.get('/', productsCtrl.index)
-
+// GET request to /products
+router.get('/', productsCtrl.userShow)
+//get index function show all prodycts
+router.get('/showAll',productsCtrl.index)
 
 
 

@@ -9,24 +9,8 @@
 </head>
 
 <body>
-	<nav>
-		<img src="/images/camera.svg">
-		<% if (user) { %>
-		  <a href="/products/showAll"	>
-			  View All Products</a>
-		  <a href="/customers" >
-			  View All Customers</a>
-		  <a href="/products/new" >
-				New Products</a>
-		  <a href="/customers/new" >
-				New Customers</a>	
-		 
-
-		  <a href="/logout">LOG OUT</a>
-		<% } else { %>
-		  <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-		<% } %>
-	  </nav>
+	<%- include('partial/nav.ejs') %>
+	
 	<main>
 	<h1>Welcome to  Hutchins Planning</h1>
 	<% if(user){%>

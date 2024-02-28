@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <%- include('../partial/nav.ejs') %>
 <h2>Enter a New Product</h2>
 <form action="/products" method="POST">
   <label>Product ID:
@@ -5,16 +17,21 @@
   </label><br>
   <label>Category:
     <select name="Category">
-        <option value="Wholesale">G</option>
-        <option value="Retail">PG</option>
+        <option value="Wholesale">WholeSale</option>
+        <option value="Retail">Retail</option>
     </select>
   </label><br>
   <label>Product Name:
     <input type="text" name="Product_Name">
   </label><br>
   <label>Product_Status
-    <input type="text" name="Product_Status">
+    <select name="Product_Status">
+        <option value="NPI">NPI</option>
+        <option value="EOL">EOL</option>
+        <option value="ACTIVE">ACTIVE</option>
+    </select>
   </label><br>
 
   <button type="submit">Add Product</button>
 </form>
+</body>

@@ -9,28 +9,30 @@
 </head>
 
 <body>
-	<nav>
-		<img src="/images/camera.svg">
-		<a href="/customers/new">ADD Customer</a>
-		<a href="/movies/new">ADD MOVIE</a>
-		<a href="/movies">ALL MOVIES</a>
-	</nav>
+	<%- include('../partial/nav.ejs') %>
 	<main>
-		<p>Please first ensure that the Performer is not in the dropdown
+		<p>Beofre adding, please make sure the customer is not in drop down list
 			<select>
-				<% performers.forEach(function(p) { %>
+				<% customers.forEach(function(c) { %>
 					<option>
-						<%= p.name %>
+						<%= c.name %>
 					</option>
 					<% }) %>
 			</select>
 		</p>
-		<form id="add-performer-form" action="/performers" method="POST">
-			<label>Name:</label>
+		<form id="add-customer-form" action="/customers" method="POST">
+			<label>Customer Name:</label>
 			<input type="text" name="name">
-			<label>Born:</label>
-			<input type="date" name="born">
-			<input type="submit" value="Add Performer">
+			<label>Customer Region:</label>
+            <select name="customer_region">
+                <option value="US">US</option>
+                <option value="APGC">APGC</option>
+                <option value="EUR">EUR</option>
+                <option value="OTHERS">OTHERS</option>
+            </select>
+			
+
+			<input type="submit" value="Add Customer">
 		</form>
 	</main>
 

@@ -5,15 +5,12 @@ const Schema = mongoose.Schema;
 // in the customer collection
 const customerSchema = new Schema({
   customer_name: {type: String, required: true, unique: true},
-  sales_region:{
+  customer_region:{
     type: String,
     enum: ['US','APGC','EUR','OTHERS'],
     required: true,
   },
-  sales_channel:{
-    type: String,
-    enum: ['WholeSale','Retail','Others']
-  }
+
 }, {
   timestamps: true
 });

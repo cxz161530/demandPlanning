@@ -35,7 +35,7 @@ const productSchema= new Schema({
         
       }],
 
-    Demands: [demandSchema]
+    demands: [demandSchema]
 },{
     timestamps: true
 })

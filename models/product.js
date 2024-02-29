@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Customer = require('./customer');
 
 const Schema = mongoose.Schema;
 
@@ -15,6 +16,7 @@ const demandSchema = new Schema({
     user:{
         type: Schema.Types.ObjectId,ref:'User'
     }
+    
 
 },{
     timestamps: true
@@ -22,16 +24,18 @@ const demandSchema = new Schema({
 
 
 
-const productsSchema= new Schema({
+const productSchema= new Schema({
     Product_ID: Number,
     Category:String,
     Product_Name: String,
     Product_Status: String,
-    customer:[{
-        type: Schema.Types.ObjectId,
-        ref:'Customer'
-    }],
-    demand:[demandSchema]
+    customer: [{
+        type: Schema.Types.ObjectId, 
+        ref: 'Customer' 
+        
+      }],
+
+    Demands: [demandSchema]
 },{
     timestamps: true
 })
@@ -42,4 +46,4 @@ const productsSchema= new Schema({
 
 
 
-module.exports = mongoose.model('products', productsSchema);
+module.exports = mongoose.model('Product', productSchema);

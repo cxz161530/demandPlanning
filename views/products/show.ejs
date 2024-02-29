@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include('../partial/nav.ejs') %>
+ <main>
+      <section id="show-page">
+          <table>
+              <tr>
+                  <th>Category</th>
+                  <th>Product Name</th>
+                  <th>Status</th>
+              </tr>
+              <% productsDocs.forEach(function(p){ %>
+              <tr>
+                  <td><%= p.Category %></td>
+                  <td><%= p.Product_Name %></td>
+                  <td><%= p.Product_Status %></td>
+                  <td><a href="/products/<%= p._id %>">Demand Details</a></td>
+              </tr>
+              <% }); %>
+          </table>
+      </section>
+      <br></br> 
+      <h2>Demands</h2>
+      <% if (user) { %>
+        <form id="add-demand-form" method="POST" action="/products/<%= product._id %>/demand">
+            <label>Customer Name:</label>
+            <textarea name="customerName"></textarea>
+            <label>CQ:</label>
+            <input type="number" name="CQ">
+            <label>CQ+1:</label>
+            <input type="number" name="CQ+1">
+            <label>CQ+2:</label>
+            <input type="number" name="CQ+2">
+            
+    
+            <input type="submit" value="Add Demand">
+        </form>
+    <% } %>
+
+<% if (product.demands.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+          <th>Demand</th>
+          <th>CQ</th>
+          <th>CQ+1</th>
+          <th>CQ+2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% product.demands.forEach(function(d) { %>
+          <tr>
+            <td class="demand-user"><img alt="avatar" src="<%= d.userAvatar %>" referrerpolicy="no-referrer" ><%= d.userName %></td>
+            <td><%= d.createdAt.toLocaleDateString() %></td>
+            <td><%= d.createdAt.toLocaleDateString() %></td>
+            <td><%= d.customerName %></td>
+            <td><%= d.CQ %></td>
+            <td><%= d.CQ+1 %></td>
+            <td><%= d.CQ+2 %></td>
+
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Demands Yet</h5>
+  <% } %>
+</main>

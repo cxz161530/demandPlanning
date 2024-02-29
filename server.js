@@ -12,6 +12,8 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
 const productsRoutes = require('./routes/products');
+const demandsRoutes = require('./routes/demands');
+
 
 
 // create the Express app
@@ -55,6 +57,7 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/products', productsRoutes);
+app.use('/',demandsRoutes)
 
 
 // invalid request, send 404 page

@@ -13,6 +13,8 @@ router.get('/new', productsCtrl.newProduct)
 // post/ products
 router.post('/',productsCtrl.create)
 
+router.get('/:id', productsCtrl.show);
+
 
 
 

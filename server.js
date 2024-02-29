@@ -13,6 +13,8 @@ const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
 const productsRoutes = require('./routes/products');
 const demandsRoutes = require('./routes/demands');
+const customersRoutes = require('./routes/customers');
+const MongoStore = require('connect-mongo');
 
 
 
@@ -38,6 +40,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // mount the session middleware
 app.use(session({
+  store: MongoStore.create({
+    mongoUrl: process.env.DATABASE_URL
+  }),
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true
@@ -58,6 +63,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRoutes);
 app.use('/products', productsRoutes);
 app.use('/',demandsRoutes)
+app.use('/', customersRoutes)
 
 
 // invalid request, send 404 page

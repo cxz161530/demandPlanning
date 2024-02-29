@@ -11,23 +11,26 @@
 <body>
   <%- include('../partial/nav.ejs') %>
  <main>
-      <section id="show-page">
-          <table>
-              <tr>
-                  <th>Category</th>
-                  <th>Product Name</th>
-                  <th>Status</th>
-              </tr>
-              <% productsDocs.forEach(function(p){ %>
-              <tr>
-                  <td><%= p.Category %></td>
-                  <td><%= p.Product_Name %></td>
-                  <td><%= p.Product_Status %></td>
-                  <td><a href="/products/<%= p._id %>">Demand Details</a></td>
-              </tr>
-              <% }); %>
-          </table>
-      </section>
+  <section id="show-page">
+    <div>Product Detail: </div>
+    <div>
+    <%= product.demand %>
+              </div>
+              <div>Category: </div>
+              <div>
+                  <%= product.Category %>
+              </div>
+              <div>Product Name </div>
+              <div>
+                  <%= product.Product_Name %>
+              </div>
+              <div>Product Status </div>
+              <div>
+                  <%= product.Product_Status%>
+              </div>
+              
+  </section>
+          
       <br></br> 
       <h2>Demands</h2>
       <% if (user) { %>
@@ -63,7 +66,6 @@
           <tr>
             <td class="demand-user"><img alt="avatar" src="<%= d.userAvatar %>" referrerpolicy="no-referrer" ><%= d.userName %></td>
             <td><%= d.createdAt.toLocaleDateString() %></td>
-            
             <td><%= d.customerName %></td>
             <td><%= d.CQ %></td>
             <td><%= d.CQ+1 %></td>

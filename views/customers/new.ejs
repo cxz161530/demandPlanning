@@ -11,15 +11,7 @@
 <body>
 	<%- include('../partial/nav.ejs') %>
 	<main>
-		<p>Beofre adding, please make sure the customer is not in drop down list
-			<select>
-				<% customers.forEach(function(c) { %>
-					<option>
-						<%= c.name %>
-					</option>
-					<% }) %>
-			</select>
-		</p>
+		
 		<form id="add-customer-form" action="/customers" method="POST">
 			<label>Customer Name:</label>
 			<input required type="text" name="customer_name">

@@ -29,29 +29,7 @@
           
       <br></br> 
       <h2>Demands</h2>
-      <% if (user) { %>
-        <form id="add-demand-form" method="POST" action="/products/<%= product._id %>/demand">
-            <label>Customer Name:</label>
-            <select name="customerName">
-              <% customers.forEach(c => { %>
-                  <option value="<%= c.customer_name %>"><%= c.customer_name %></option>
-              <% }) %>
-          </select>
-            
-            
-
-            <label>CQ:</label>
-            <input type="number" name="CQ">
-            <label>CQ+1:</label>
-            <input type="number" name="CQ+1">
-            <label>CQ+2:</label>
-            <input type="number" name="CQ+2">
-            
-    
-            <input type="submit" value="Add Demand">
-        </form>
-    <% } %>
-    <br></br> 
+      
 
 <% if (product.demands.length) { %>
     <table>
@@ -93,7 +71,7 @@
             <td>
               <% if (user && user._id.equals(d.user)) { %>
                 <form action="/demands/<%= d._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
+                <button type="submit">Delete</button>
                 </form>
               <% } %>
             </td>
@@ -106,4 +84,28 @@
   <% } else { %>
     <h5>No Demands Yet</h5>
   <% } %>
+
+  <% if (user) { %>
+    <form id="add-demand-form" method="POST" action="/products/<%= product._id %>/demand">
+        <label>Customer Name:</label>
+        <select name="customerName">
+          <% customers.forEach(c => { %>
+              <option value="<%= c.customer_name %>"><%= c.customer_name %></option>
+          <% }) %>
+      </select>
+        
+        
+
+        <label>CQ:</label>
+        <input type="number" name="CQ">
+        <label>CQ+1:</label>
+        <input type="number" name="CQ+1">
+        <label>CQ+2:</label>
+        <input type="number" name="CQ+2">
+        
+
+        <input type="submit" value="Add Demand">
+    </form>
+<% } %>
+<br></br> 
 </main>

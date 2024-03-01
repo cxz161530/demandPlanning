@@ -6,9 +6,19 @@ This is a demand planning app developed based on Express, linking mongoBD.
 #### url https://macaw-tweed-jacket.cyclic.app
 
 
-#### function
+#### Tchnology Used
 
-1. app can track products, customers and demands for each customer, it has full CRUD on demand details
-2. It also contains Auth function to verify user good info
+1. Express JS       
+2. JavaScript, CSS
+3. Google Auth
+
+
+## Ice Box
+1. Summarize the total qty for each product in one page show
+2. Show Unit and dollar value transfer
+
+
+## Landiing Page
+
 
 

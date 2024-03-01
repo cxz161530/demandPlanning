@@ -226,22 +226,22 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-.link-box {
-  display: block; /* Makes each link take up the full width as a block element */
-  width: 80%; /* Adjust width as needed */
-  margin: 10px auto; /* Centers the link blocks and adds margin around them */
-  padding: 15px 20px; /* Adjust padding for larger clickable area and visual appeal */
-  background-color: #0056b3;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px; /* Rounded corners for the boxes */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
-  text-align: center; /* Centers the text inside the block */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background color change and slight lift effect on hover */
+a {
+    display: block; /* Makes each link take up the full width as a block element */
+    width: 80%; /* Adjust width as needed */
+    margin: 10px auto; /* Centers the link blocks and adds margin around them */
+    padding: 15px 20px; /* Adjust padding for larger clickable area and visual appeal */
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners for the boxes */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+    text-align: center; /* Centers the text inside the block */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background color change and slight lift effect on hover */
 }
 
-.link-box:hover {
-  background-color: #003d82;
-  transform: translateY(-2px); /* Slight lift effect */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Enhanced shadow for lifted effect */
+a:hover {
+    background-color: #003d82;
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Enhanced shadow for lifted effect */
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <%- include('../partial/nav.ejs') %>
+    <main>
+        <section id="show-page">
+            <table>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Customer Region</th>
+                </tr>
+                
+                <tr>
+                    <td><%= customer.customer_name %></td>
+                    <td><%= customer.customer_region %></td>
+                    
+                </tr>
+            
+            </table>
+        </section>
+
+</body>

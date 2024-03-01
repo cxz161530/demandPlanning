@@ -5,5 +5,6 @@ const customersCtrl = require('../controllers/customers');
 router.get('/customers/new', customersCtrl.new);
 router.post('/customers', customersCtrl.create);
 router.post('/products/:productId/customers', customersCtrl.addToCust);
+router.get('/customers',customersCtrl.index)
 
 module.exports = router;

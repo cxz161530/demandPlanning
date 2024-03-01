@@ -3,13 +3,15 @@ const ProductModel = require('../models/product')
 
 module.exports = {
 	create,
-	delete: deleteOne
+	delete: deleteOne,
+    edit,
+    update
 }
 
 async function deleteOne(req, res){
 	try {
 		// find the product with the demand
-		const productDoc = await ProductModel.findOne({'demands._id': req.params.id, 'reviews.user': req.user._id})
+		const productDoc = await ProductModel.findOne({'demands._id': req.params.id})
 
 		if (!productDoc) return res.redirect('/products')
 
@@ -25,10 +27,7 @@ async function deleteOne(req, res){
 }
 
 async function create(req, res){
-	// To find the product
-	console.log('====================================')
-	console.log(req.user, "< ---- req.user")
-	console.log('====================================')
+	
 	try {
 		
 		const productDoc = await ProductModel.findById(req.params.id)
@@ -47,7 +46,36 @@ async function create(req, res){
 		console.log(err)
 		res.send(err)
 	}
-	
-
 
 }
+
+
+async function edit(req, res) {
+    
+    const product = await ProductModel.findOne({'demands._id': req.params.id});
+
+    const demands = product.demands.id(req.params.id);
+    // Render the comments/edit.ejs template, passing to it the comment
+    res.render('demands/edit', { demands });
+  }
+  
+  async function update(req, res) {
+    
+    const product = await ProductModel.findOne({'demands._id': req.params.id});
+ 
+    const demandSubdoc = product.demands.id(req.params.id);
+    
+    // Update the text of the comment
+    demandSubdoc.CQ = req.body.CQ;
+    demandSubdoc['CQ+1'] = req.body['CQ+1'];
+    demandSubdoc['CQ+2'] = req.body['CQ+2'];
+
+    try {
+      await product.save();
+    } catch (e) {
+      console.log(e.message);
+    }
+
+    res.redirect(`/products/${product._id}`);
+  }
+  

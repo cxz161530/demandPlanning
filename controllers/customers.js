@@ -4,7 +4,9 @@ const ProductModel = require('../models/product')
 module.exports = {
   new: newCustomer,
   create,
-  addToCust
+  addToCust,
+  show,
+  index
 };
 
 async function addToCust(req, res){
@@ -13,7 +15,7 @@ async function addToCust(req, res){
 	try {
 		
 		const productDoc = await ProductModel.findById(req.params.productId);
-		// add the performers id to the movieDoc.cast array
+		// add the customers id to the productDoc.custer array
 		productDoc.customer.push(req.body.customerId);
 		// we mutated the movieDoc, so we have to tell the database!
 		await productDoc.save()
@@ -46,8 +48,9 @@ async function create(req, res) {
 	  // tell the client to make a GET request to /performers/new
 	  res.redirect("/customers/new");
 	} catch (err) {
+        console.log(err)
 	  // if there is an error send back the object 
-	  res.send(err);
+	  res.redirect('/customers/new');
 	}
   }
   
@@ -62,3 +65,39 @@ async function create(req, res) {
 	  res.send(err);
 	}
   }
+
+  async function show(req, res) {
+    console.log('Hello World')
+
+  
+	try {
+  
+	  const customerFromTheDatabase = await CustomerModel
+	  									.findById(req.params.id)
+									
+									
+	  console.log(customerFromTheDatabase);
+	
+	  // For the dropdown for the addToCustomer
+	  // We need to search the database for all of the customers
+
+	  res.render("customers/show", {customer: customerFromTheDatabase});
+	} catch (err) {
+	  console.log(err)
+	  res.send(err);
+	}
+  }
+
+  async function index(req,res){
+	try{
+		const customersInfoFromDB = await CustomerModel.find({})
+		console.log(customersInfoFromDB)
+	
+		res.render('customers', { customersDocs: customersInfoFromDB });
+		
+
+	}catch(err){
+		console.log(err)
+		
+	}}
+	

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/styleP.css' />
 </head>
 
 <body>
@@ -53,9 +53,9 @@
     <table>
       <thead>
         <tr>
-          <th>User</th>
+          
           <th>Date</th>
-          <th>Demand</th>
+          <th>Customer</th>
           <th>CQ</th>
           <th>CQ+1</th>
           <th>CQ+2</th>
@@ -64,12 +64,33 @@
       <tbody>
         <% product.demands.forEach(function(d) { %>
           <tr>
-            <td class="demand-user"><img alt="avatar" src="<%= d.userAvatar %>" referrerpolicy="no-referrer" ><%= d.userName %></td>
+            
             <td><%= d.createdAt.toLocaleDateString() %></td>
             <td><%= d.customerName %></td>
             <td><%= d.CQ %></td>
             <td><%= d.CQ+1 %></td>
             <td><%= d.CQ+2 %></td>
+            <td class="update-demand">
+              <form action="/demands/<%= d._id %>?_method=PUT" method="POST">
+                <!-- Value attribute is being set to the comment's current text -->
+                <input name="CQ" value="<%= d.CQ %>">
+                <input name="CQ+1" value="<%= d.CQ+1 %>">
+                <input name="CQ+2" value="<%= d.CQ+2 %>">
+                <button type="submit">UPDATE DEMAND</button>
+              </form>
+              
+            </td>
+
+            
+
+            <td>
+              <% if (user && user._id.equals(d.user)) { %>
+                <form action="/demands/<%= d._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+                </form>
+              <% } %>
+            </td>
+            
 
           </tr>
         <% }); %>

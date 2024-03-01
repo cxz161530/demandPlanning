@@ -14,20 +14,15 @@
         <section id="show-page">
             <table>
                 <tr>
-                    <th>Category</th>
-                    <th>Product Name</th>
-                    <th>Status</th>
+                    <th>Customer Name</th>
+                    <th>Customer Region</th>
+                  
                 </tr>
-                <% productsDocs.forEach(function(p){ %>
+                <% customersDocs.forEach(function(c){ %>
                 <tr>
-                    <td><%= p.Category %></td>
-                    <td><%= p.Product_Name %></td>
-                    <td><%= p.Product_Status %></td>
-                    <td><a href="/products/<%= p._id %>">Demand Details</a></td>
-                    <td><a href="/products/<%= p._id %>/edit">Edit</a></td>
+                    <td><%= c.customer_name %></td>
+                    <td><%= c.customer_region %></td>
                     
-                      
-
                 </tr>
                 <% }); %>
             </table>

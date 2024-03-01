@@ -8,7 +8,8 @@ module.exports = {
 	index,
 	newProduct,
 	create,
-	show
+	show, 
+	delete: deleteProduct
 
 
 }
@@ -81,3 +82,21 @@ async function show(req, res) {
 	  res.send(err);
 	}
   }
+
+  async function deleteProduct(req, res) {
+	try{
+	const productDoc = await ProductModel.findOne({_id: req.params.id})
+	productDoc.remove(req.params.id)
+	productDoc.save()
+
+
+	// Deleted product, so must redirect to index
+	res.redirect('/products/showAll');
+
+  }catch(err){
+	console.log(err)
+	res.redirect('/products/showAll');
+  }}
+  
+
+  

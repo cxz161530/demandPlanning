@@ -1,22 +1,36 @@
-* {
-  box-sizing: border-box;
-  font-family: Helvetica;
-  color: #424748;
+header{
+  text-align: center;
+  border:1px solid black;
+  background-color: gold ;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* Set flex direction to column */
+  
 }
 
 body {
+  font-family: 'Arial', sans-serif;
   margin: 0;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: 
-    "nav"
-    "main"
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center; /* Center-align text within the body */
+  min-height: 300vh;
+  margin: 0
 }
+
+main {
+  margin-top: 20px; /* Add margin to the top of the main content */
+  flex: 1;
+}
+
+
 
 body > nav {
   grid-area: nav;
   background-color: #B8C0C2;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  border:1px solid black;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -51,8 +65,8 @@ nav > a {
 }
 
 nav > a:hover {
-  color: white;
-  background-color: #424748;
+  background-color: white;
+    color:black;
 }
 
 nav > a.active {
@@ -80,8 +94,11 @@ nav > a.active {
 }
 
 table {
-  font-size: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
+
 
 table thead th {
   padding: 5px;
@@ -89,8 +106,9 @@ table thead th {
 }
 
 table td {
-  padding: 10px;
-  text-align: center;
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
 }
 
 #list td:nth-child(2), #list td:nth-child(3){
@@ -162,4 +180,49 @@ ul {
 	
 li {
   font-weight: bold;
+}
+
+nav {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  align-items: center;
+  
+}
+
+form {
+  background-color: #fff;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-# Demand Planning
+# Hutchins Planning
 
 
 This is a demand planning app developed based on Express, linking mongoBD.
